@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marion Moranetz · Selected Work</title>
+<link rel="icon" href="data:,">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:        #0A0A12;
+  --surface:   #12121E;
+  --surface-2: #1A1A2A;
+  --border:    #2A2A3A;
+  --ink:       #F4F4F5;
+  --ink-soft:  #C8C8D6;
+  --ink-mute:  #8888A0;
+  --ink-faint: #555568;
+  --accent:    #00D4FF;   /* cyan */
+  --pink:      #FF2D87;
+  --amber:     #F0B429;
+  --violet:    #8B5CF6;
+  --green:     #06D6A0;
+  --red:       #FF3366;
+  --sans:      'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono:      'JetBrains Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 28px 80px;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  margin-bottom: 56px;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.sub {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 680px;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.sub .em { color: var(--ink); font-weight: 600; }
+
+.meta-bar {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-family: var(--mono);
+  letter-spacing: -0.01em;
+}
+.meta-bar a { color: var(--accent); text-decoration: none; }
+.meta-bar a:hover { text-decoration: underline; }
+
+/* ── Section ────────────────────────────────────────── */
+section { margin-bottom: 56px; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+.section-note {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--ink-mute);
+  font-family: var(--mono);
+  letter-spacing: -0.01em;
+}
+
+/* ── Grid ────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  min-height: 132px;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.card.no-link { pointer-events: none; }
+.card.no-link:hover {
+  border-color: var(--border);
+  transform: none;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.card-status {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.status-store    { background: rgba(6, 214, 160, 0.14); color: var(--green); }
+.status-built    { background: rgba(240, 180, 41, 0.14); color: var(--amber); }
+.status-public   { background: rgba(0, 212, 255, 0.14); color: var(--accent); }
+.status-research { background: rgba(139, 92, 246, 0.16); color: var(--violet); }
+.status-proto    { background: rgba(136, 136, 160, 0.16); color: var(--ink-mute); }
+.status-live     { background: rgba(255, 45, 135, 0.14); color: var(--pink); }
+
+.card-desc {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  flex: 1;
+  margin-bottom: 12px;
+}
+
+.card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+  background: var(--surface-2);
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--ink-mute);
+  font-size: 13px;
+  line-height: 1.6;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer .legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+footer .legend span { color: var(--ink-mute); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER ────────────────────────────────────────── -->
+  <header class="header">
+    <div class="eyebrow">Selected work · curated from ~138 repos · late 2025 →</div>
+    <h1>Marion Moranetz</h1>
+    <p class="sub">
+      <span class="em">Indie builder.</span> 17 iOS apps to the App Store solo since late 2025, plus a working portfolio of web experiences, research artifacts, and operator tools. What's below is the curated reading list — what's not here is unfinished, abandoned, or domain-private.
+    </p>
+    <div class="meta-bar">
+      <span>San Francisco</span>
+      <span>·</span>
+      <a href="https://github.com/Moranetz">github.com/Moranetz</a>
+      <span>·</span>
+      <a href="https://linkedin.com/in/marionmoranetz">linkedin/marionmoranetz</a>
+      <span>·</span>
+      <a href="mailto:Marion.m.moranetz@gmail.com">email</a>
+    </div>
+  </header>
+
+  <!-- 1 · PERSUASION-TRAINING SUITE ───────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Persuasion-training suite — three iOS games, one quarter</span>
+      <span class="section-note">same scaffold, replicated</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://github.com/Moranetz/reality-distortion-ios">
+        <div class="card-top">
+          <div class="card-title">Reality Distortion</div>
+          <span class="card-status status-built">Submission-bound</span>
+        </div>
+        <p class="card-desc">Frame-stacking game. Eight named buyer archetypes with documented persuasion weaknesses. The player composes a six-fragment response targeting that weakness.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">game</span><span class="tag">persuasion</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/mindcraft-ios">
+        <div class="card-top">
+          <div class="card-title">MindCraft</div>
+          <span class="card-status status-built">Submission-bound</span>
+        </div>
+        <p class="card-desc">Duolingo-style mechanism drilling across seven persuasion techniques — pattern interrupts, embedded commands, assumptive language, identity hooks, social proof, scarcity, objection reframes.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">learning</span><span class="tag">persuasion</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/viraliq-ios">
+        <div class="card-top">
+          <div class="card-title">ViralIQ</div>
+          <span class="card-status status-built">Submission-bound</span>
+        </div>
+        <p class="card-desc">Hook-writing practice across seven distinct interactions — arrange-the-fragments, swipe-instinct, find-the-weak-word, rank-by-quality, A/B-instinct, rate-the-content, fix-the-phrase.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">creator</span><span class="tag">writing</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 2 · PERSUASION / INFLUENCE APPS ─────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">Persuasion &amp; influence training</span>
+      <span class="section-note">iOS + web</span>
+    </div>
+    <div class="grid">
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Read the Room</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Text-based persuasion trainer disguised as an iMessage inbox. 14 NPCs with hidden psychology profiles, 40+ peer-reviewed influence techniques, combo-based scoring.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">React</span><span class="tag">game</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Tells</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Social deduction game. WhatsApp-styled chat simulation where players identify behavioral tells — deception, power dynamics, manipulation. 5 modes, 15 scenarios.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">game</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Synapse</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Presence training disguised as a reflex game. DOSE neurochemistry, dynamic difficulty, companion AI, 6-phase flow architecture.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">neuro</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Knack</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Persuasion-literacy game. Practice influence, charm, comfort, de-escalation through WhatsApp-style branching conversations. 7 scenarios, skill tracking.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">game</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Persuade Me</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Practice influence on characters who fight back. 12 AI-scored persuasion scenarios with named NPCs, psychological profiles, voice recording, Claude-powered coaching.</p>
+        <div class="card-tags"><span class="tag">web</span><span class="tag">React</span><span class="tag">AI</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Tension Lab</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Subtext training app for reading what conversations are really negotiating beneath the words. Decode tension, translate intent.</p>
+        <div class="card-tags"><span class="tag">web</span><span class="tag">React</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">CORTEX</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Critical-thinking training game with 7 interactive reasoning mechanics, 23 logical concepts. Duolingo-meets-Brilliant for the brain.</p>
+        <div class="card-tags"><span class="tag">web</span><span class="tag">Vite</span><span class="tag">game</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">The Agenda Game</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Browser propaganda-alchemy simulator. Mix truth fragments, emotional triggers, distortion techniques. Learn influence by crafting it.</p>
+        <div class="card-tags"><span class="tag">web</span><span class="tag">HTML</span><span class="tag">satire</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Charisma</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Conversation-practice app focused on empathy, boundaries, de-escalation, authentic communication. React + Vite web + iOS surfaces.</p>
+        <div class="card-tags"><span class="tag">web</span><span class="tag">iOS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · ATMOSPHERIC / NARRATIVE GAMES ───────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">Atmospheric &amp; narrative games</span>
+      <span class="section-note">native iOS · Canvas + SpriteKit</span>
+    </div>
+    <div class="grid">
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Witness Walk</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Contemplative side-scrolling platformer. Procedural Perlin-noise terrain, seed planting, fractal tree rendering, mycelium networks, day/night cycle.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">contemplative</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Wisp</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Atmospheric light-collection exploration game. 5 hand-painted biomes, procedural creatures, Core Graphics rendering.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">explore</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Kitsune no Michi (狐の道)</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Atmospheric experience exploring Japanese fox mythology. 19 locations, shrine discovery, hotspot interactions, seasonal Canvas scenes, kitsune progression.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">mythology</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Long Winter</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Survival text game in a frozen wilderness. Scavenge, hunt, craft tools. Wolf companion with 5 trust stages, spirit animal system.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">survival</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Still Waters</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Narrative visual novel. Canvas-rendered rustic scenes, character dialogue with persuasion mechanics, player choices, building &amp; crafting economy.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">narrative</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Somnium</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Atmospheric dream-creature puzzle game. 5 dream beings requiring specific interactions. Rapport tracking, trance mechanics, particle systems.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">puzzle</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Jeju Island</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Idle island builder with prestige loop. Place buildings from a card hand, earn gold from orchards, upgrade through 3 tiers. 60fps Canvas rendering with day/night, seasons, weather.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">idle</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">SLOP OPS</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Satirical text-adventure management game. Manage suspicion, reputation, and sloppiness through absurd suburban covert missions. CRT scanlines, typewriter text.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">retro</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Husk (Obluda)</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Atmospheric identity game. Collect names, confront name-callers. SwiftUI + SpriteKit.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SpriteKit</span><span class="tag">identity</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · DECISION & PRODUCTIVITY ─────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <span class="section-title">Decision &amp; productivity</span>
+      <span class="section-note">native iOS · local-first</span>
+    </div>
+    <div class="grid">
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Reckon</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Decision-analysis app based on Analysis of Competing Hypotheses. Forces structure on murky thinking — question → competing hypotheses → weighted evidence → bias warnings.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">decision</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Cabinet</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Stakeholder cartography for hard decisions. Map power, interest, alliances, and observation logs across initiatives.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">decision</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Forecast</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">You're not a storm — you're a forecast. Privacy-first cycle app disguised as weather. Drafts drift across the wheel until the sky clears.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">health</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Marrow</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Behavior-change nutrition system for cravings, symptom logging, protocol design, and compliance-friendly dietary tracking.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">health</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Aftergreen</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Card-drafting ecosystem builder. Draw from 5-card mystery decks, build sustainable habits as a card game.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">habits</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Date Rank</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Local-first dating memory tracker. React/Vite web + native iOS prototypes. Notes, structured ranking, preference analysis.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">web</span><span class="tag">local-first</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">SoloFinance</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Local-first freelancer finance app for earnings, receivables, and tax set-aside across SwiftUI iOS and Android prototypes.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">finance</span><span class="tag">local-first</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Grove Isle</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Territory-control strategy game. Plant magical seeds to defend territory, manage tile-based growth and decay.</p>
+        <div class="card-tags"><span class="tag">iOS</span><span class="tag">SwiftUI</span><span class="tag">strategy</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · RESEARCH & OPERATOR TOOLS ───────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <span class="section-title">Research artifacts &amp; operator tools</span>
+      <span class="section-note">all public</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://github.com/Moranetz/closing-evidence-atlas">
+        <div class="card-top">
+          <div class="card-title">Closing Evidence Atlas</div>
+          <span class="card-status status-research">Public research</span>
+        </div>
+        <p class="card-desc">Pre-registered systematic review of 39 named sales-closing techniques. 11,785 records screened across 7 public databases. 15 of 39 flagged as having zero peer-reviewed empirical studies.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">Bayesian</span><span class="tag">PRISMA</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/sales-instrument">
+        <div class="card-top">
+          <div class="card-title">Sales Instrument</div>
+          <span class="card-status status-research">Public research</span>
+        </div>
+        <p class="card-desc">Pre-registered 4-arm A/B test on my own cold-outreach openers. 400 decisions, 12 weeks. Design committed publicly before the first send; results published whichever way the trial lands.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">pre-registered</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/lsm-discovery">
+        <div class="card-top">
+          <div class="card-title">LSM Discovery</div>
+          <span class="card-status status-research">Public research</span>
+        </div>
+        <p class="card-desc">Replication of Pennebaker's Language Style Matching research, validated on persuasive dialogue. Open Python implementation. Includes a "what this means for sales discovery" translation.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">NLP</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/Persuasion-Max">
+        <div class="card-top">
+          <div class="card-title">Persuasion-Max</div>
+          <span class="card-status status-research">Public research</span>
+        </div>
+        <p class="card-desc">Computational persuasion research system. Mechanistic influence modeling, scoring pipelines, calibration audits, behavioral-science experiments.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">research</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/ae-playbook">
+        <div class="card-top">
+          <div class="card-title">AE Playbook</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Open AE playbook for new-business sales. Annotated outbound templates, four-phase discovery framework, five-role multi-threading map, top-14 objection-handling matrix, MEDDPICC.</p>
+        <div class="card-tags"><span class="tag">sales</span><span class="tag">playbook</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/gtm-teardowns">
+        <div class="card-top">
+          <div class="card-title">GTM Teardowns</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Public GTM teardowns of three target companies (Stripe, Clay, Linear). ICP decomposition, pricing analysis, messaging audit, observable vulnerabilities, 30-60-90 day plan for each.</p>
+        <div class="card-tags"><span class="tag">sales</span><span class="tag">teardown</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/poseprompter-stripe-teardown">
+        <div class="card-top">
+          <div class="card-title">PosePrompter Stripe Teardown</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Founder's open-source teardown of a production Stripe integration: the architecture, the four mistakes, the fixes.</p>
+        <div class="card-tags"><span class="tag">Stripe</span><span class="tag">payments</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/raroque-repo-audit">
+        <div class="card-top">
+          <div class="card-title">Raroque Repo Audit</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Pre-publish security-audit skill for Claude Code. Aligned to OWASP ASVS 5.0, OWASP Top 10, MASVS 2.0, CWE Top 25 — plus the Supabase RLS / Stripe-webhook / AI-budget failure modes Chris Raroque documented.</p>
+        <div class="card-tags"><span class="tag">security</span><span class="tag">OWASP</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/linkedin-optimizer">
+        <div class="card-top">
+          <div class="card-title">LinkedIn Optimizer</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Single-file React app that scores a LinkedIn draft on virality dimensions, then rewrites it for one of five named audience profiles with five rewrite levers.</p>
+        <div class="card-tags"><span class="tag">React</span><span class="tag">creator</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/clearframe-public">
+        <div class="card-top">
+          <div class="card-title">ClearFrame</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">Chrome extension + React app that identifies persuasion techniques in any headline, steelmans both sides without ideology labels, surfaces common ground.</p>
+        <div class="card-tags"><span class="tag">Chrome</span><span class="tag">React</span></div>
+      </a>
+      <a class="card" href="https://github.com/Moranetz/post-bridge-mcp">
+        <div class="card-top">
+          <div class="card-title">Post Bridge MCP</div>
+          <span class="card-status status-public">Public tool</span>
+        </div>
+        <p class="card-desc">50-tool MCP server for solo-dev marketing — viral scoring before publishing, persuasion email sequences, competitive intelligence, Reddit authority building.</p>
+        <div class="card-tags"><span class="tag">MCP</span><span class="tag">Python</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 6 · WEB EXPERIENCES ─────────────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <span class="section-title">Web experiences &amp; interactive artifacts</span>
+      <span class="section-note">HTML · Canvas · React</span>
+    </div>
+    <div class="grid">
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Reality Distortion (web)</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Original HTML source the native iOS port was built from. Persuasion-analysis reference for rhetorical pattern detection, fractionation prompts, behavioral scoring experiments.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">Canvas</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Prompt Codex</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Premium digital book experience. 3D leather cover with page-turn animation, parchment textures, hand-rendered illustrations.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">Three.js</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Persuasion Trainer</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Structured drill pad for 40+ real influence techniques — anchoring, calibrated questions, mirroring, accusation audits, framing moves.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">drill</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">NegotiationOS</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Interactive negotiation-simulation trainer. Dark lime-on-black aesthetic. Scenario branching with technique annotations.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">trainer</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Egregore</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">You are the offering. Atmospheric browser game about ego dissolution, shadow communion, and the cost of being seen.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">Canvas</span><span class="tag">narrative</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Field Protocol</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Military-aesthetic kettlebell-conditioning PWA. Boot sequence, classified theming, structured routine progression.</p>
+        <div class="card-tags"><span class="tag">PWA</span><span class="tag">fitness</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">SNA Framework</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Social Network Analysis Framework. Interactive 6-phase methodology for detecting coordinated influence operations — baseline, anomaly detection, playbook mapping.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">research</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">PRICE</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Card-based strategy game where you play a pharma CEO making drug-pricing decisions. Tradeoffs between margin, access, regulatory exposure.</p>
+        <div class="card-tags"><span class="tag">HTML</span><span class="tag">strategy</span></div>
+      </div>
+      <div class="card no-link">
+        <div class="card-top">
+          <div class="card-title">Dead Internet</div>
+          <span class="card-status status-proto">Prototype</span>
+        </div>
+        <p class="card-desc">Social-network narrative-manipulation detector. Identifies propaganda playbooks at the structural level — not just keyword spotting.</p>
+        <div class="card-tags"><span class="tag">JS</span><span class="tag">research</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · CLOSING ────────────────────────────────────── -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <span class="section-title">What's not here</span>
+      <span class="section-note">honest disclosure</span>
+    </div>
+    <div style="max-width: 720px; font-size: 14px; color: var(--ink-soft); line-height: 1.65;">
+      <p style="margin-bottom: 12px;">~100 additional repos are private. Most are unfinished experiments, abandoned prototypes, client work I don't have the right to surface, or App-Store-bound apps that shouldn't be source-public before launch. The selection above is what I'd actually want a hiring manager, founder buyer, or collaborator to spend time with.</p>
+      <p style="margin-bottom: 12px;">If you click into a "Prototype" card and want to see the code, ask — I can grant access on a per-project basis depending on what makes sense. The "Public" entries are clickable in this gallery.</p>
+      <p>The work above is the working portfolio of a solo founder shipping fast and reading the persuasion-and-behavioral-science literature with the right epistemic discount. None of it is venture-backed; all of it is what I've been building since late 2025.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div>Marion Moranetz · <a href="https://github.com/Moranetz">github.com/Moranetz</a> · <a href="https://linkedin.com/in/marionmoranetz">linkedin/marionmoranetz</a> · <a href="mailto:Marion.m.moranetz@gmail.com">Marion.m.moranetz@gmail.com</a></div>
+    <div class="legend">
+      <span><strong style="color: var(--green);">■</strong> App Store live</span>
+      <span><strong style="color: var(--amber);">■</strong> Submission-bound</span>
+      <span><strong style="color: var(--accent);">■</strong> Public repo</span>
+      <span><strong style="color: var(--violet);">■</strong> Public research</span>
+      <span><strong style="color: var(--ink-mute);">■</strong> Working prototype, private repo</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
