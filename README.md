@@ -1,24 +1,32 @@
 # selected-work
 
-Curated showcase of Marion Moranetz's working portfolio — iOS apps, web experiences, research artifacts, and operator tools.
+A curated showcase of Marion Moranetz's working portfolio: iOS apps, web experiences, research artifacts and operator tools.
 
-Live at: **https://moranetz.github.io/selected-work/**
+Live at **https://moranetz.github.io/selected-work/**
 
 ## What's here
 
-A single-page gallery of ~35 selected projects across six categories:
+`index.html` is a single-page gallery of about 35 selected projects in six groups:
 
-1. **Persuasion-training suite** — three iOS games shipped this quarter (Reality Distortion, MindCraft, ViralIQ)
-2. **Persuasion &amp; influence training** — iOS + web apps for practicing influence mechanics
-3. **Atmospheric &amp; narrative games** — native SwiftUI games with Canvas / SpriteKit rendering
-4. **Decision &amp; productivity** — local-first iOS apps for hard thinking
-5. **Research artifacts &amp; operator tools** — public repos (Atlas, LSM, Persuasion-Max, AE Playbook, GTM Teardowns, etc.)
-6. **Web experiences** — HTML / Canvas / React interactive artifacts
+1. **Persuasion-training suite.** Three iOS games built for App Store submission (Reality Distortion, MindCraft, ViralIQ).
+2. **Persuasion and influence training.** iOS and web apps for practicing influence mechanics.
+3. **Atmospheric and narrative games.** Native SwiftUI games drawn with Canvas or SpriteKit.
+4. **Decision and productivity.** Local-first iOS apps for hard thinking.
+5. **Research artifacts and operator tools.** Public repos such as Atlas, LSM, Persuasion-Max, AE Playbook and GTM Teardowns.
+6. **Web experiences.** Interactive HTML, Canvas and React pieces.
 
 ## What's not here
 
-~100 additional repos are private. Most are unfinished experiments, abandoned prototypes, client work, or App-Store-bound apps that shouldn't be source-public before launch. The selection above is the curated reading list.
+About 100 more repos are private. Most are unfinished experiments, abandoned prototypes, client work, or apps headed for the App Store that stay closed until launch.
+
+## How it is checked
+
+`tests/check-links.mjs` requests every external link on the page and fails if any answers with something other than 200, so a project repo that goes private shows up as a failed run before a visitor finds the dead link. GitHub Actions runs it on every push and every Monday.
+
+```
+node tests/check-links.mjs
+```
 
 ## License
 
-MIT. Use the design pattern (HTML+CSS gallery rendered via static hosting) for your own work if it helps.
+MIT. Use the design pattern (an HTML and CSS gallery on static hosting) for your own work if it helps.
